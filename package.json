@@ -1,0 +1,18 @@
+{
+  "name": "example-server",
+  "version": "1.0.0",
+  "description": "SUITS Example-server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Pischulti",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.12",
+    "nodemon": "^1.17.3"
+  },
+  "devDependencies": {}
+}
