@@ -3,16 +3,23 @@ var express = require('express');
 //initiates the body parser
 var bodyParser = require('body-parser');
 //initilizes the mongodb
-var mongoose = require('mongoose');
+var mongoose = require('mongodb').MongoClient,
+  test = require('assert');
+MongoClient.connect('mongodb://admin:B29R233@cluster0-shard-00-00-4mutn.mongodb.net:27017,cluster0-shard-00-01-4mutn.mongodb.net:27017,cluster0-shard-00-02-4mutn.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true', function(err, db) {
+  test.equal(null, err);
+
+
+//var mongoose = require('mongoose');
+//Database connector
+//mongoose.connect("mongodb://admin:B29R233@cluster0-shard-00-00-4mutn.mongodb.net:27017,cluster0-shard-00-01-4mutn.mongodb.net:27017,cluster0-shard-00-02-4mutn.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true");
+//mongoose.connect('mongodb://localhost/spacesuit');
+
 
 var app = express();
 
 //Import files for use in the project
 Simulation = require('./models/simulate');
 SuitSwitch = require('./models/suitswitch');
-
-//Database connector
-mongoose.connect('mongodb://localhost/spacesuit');
 
 //Returns all simulated data from the database !
 app.get('/api/suit', function(req, res){      
